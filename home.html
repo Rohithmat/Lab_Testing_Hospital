@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Testing Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #004d40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        .hero {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2n90yjfAuKEsNXCPKhumcUa4_0R2aYJGAgQ&s') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        .hero h2 {
+            font-size: 4em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.5em;
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .service-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service-item {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lab Testing Services</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a> 
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Your Trusted Lab Testing Partner</h2>
+        <p>Providing accurate and reliable testing services for all your needs.</p>
+    </div>
+
+    <div class="container">
+        <section class="services" id="services">
+            <a href="blood-tests.html" class="service-item">
+                <img src="https://i.pinimg.com/originals/b2/96/86/b296863daa168f8cc3e18b47b6fcf7ae.png" alt="Blood Tests">
+                <h3>Blood Tests</h3>
+                <p>Comprehensive blood tests to monitor your health and diagnose conditions.</p>
+            </a>
+            <a href="urine-tests.html" class="service-item">
+                <img src="https://www.shutterstock.com/image-illustration/3d-illustration-urine-test-medical-260nw-2360391241.jpg" alt="Urine Tests">
+                <h3>Urine Tests</h3>
+                <p>Accurate urine tests to detect various medical conditions.</p>
+            </a>
+            <a href="genetic-testing.html" class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8yO8hLwDqVJglArK_DUxyekwBDsT87BFF2w&s" alt="Genetic Testing">
+                <h3>Genetic Testing</h3>
+                <p>Advanced genetic testing for personalized healthcare solutions.</p>
+            </a>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Lab Testing Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>

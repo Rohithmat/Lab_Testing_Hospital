@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genetic Testing | Lab Testing Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f5f7f9;
+        }
+        header {
+            background-color: #004d40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+            text-shadow: 0 0 5px rgba(255, 255, 0, 0.7);
+        }
+        .hero {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ__Bg3oAM_w7izmlLyTouqnh9Rmz4zVGYZA&s') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            background-size: cover;
+            transform: scale(1.05);
+            opacity: 0;
+            animation: zoomIn 2s forwards;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s forwards;
+        }
+        .hero p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s 0.5s forwards;
+        }
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeInContent 2s forwards;
+        }
+        .details, .registration-form {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+        .details h2 {
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+        .details p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .registration-form h2 {
+            color: #004d40;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .registration-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .registration-form input, .registration-form select, .registration-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .registration-form input:focus, .registration-form select:focus, .registration-form textarea:focus {
+            border-color: #004d40;
+            box-shadow: 0 0 5px rgba(0, 77, 64, 0.3);
+        }
+        .registration-form button {
+            background-color: #004d40;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 1.1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .registration-form button:hover {
+            background-color: #003d33;
+            transform: scale(1.05);
+        }
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lab Testing Services</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="blood-tests.html">Blood Tests</a>
+            <a href="urine-tests.html">Urine Tests</a>
+            <a href="genetic-testing.html">Genetic Testing</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Genetic Testing</h1>
+        <p>Discover our advanced genetic testing services for personalized insights.</p>
+    </div>
+
+    <div class="content">
+        <section class="details">
+            <h2>What We Offer</h2>
+            <p>Our genetic testing services provide valuable information about your genetic makeup. From understanding your ancestry to assessing health risks, our tests offer comprehensive insights for better healthcare decisions.</p>
+            <h2>Why Choose Us</h2>
+            <p>We utilize cutting-edge technology and expertise in genetic analysis to deliver accurate results. Our commitment to quality and patient care ensures you receive the best service possible.</p>
+        </section>
+
+        <section class="registration-form">
+            <h2>Register for a Genetic Test</h2>
+            <form id="registration-form">
+                <label for="patient-name">Full Name:</label>
+                <input type="text" id="patient-name" name="patient-name" required>
+
+                <label for="patient-email">Email Address:</label>
+                <input type="email" id="patient-email" name="patient-email" required>
+
+                <label for="patient-phone">Phone Number:</label>
+                <input type="tel" id="patient-phone" name="patient-phone" required>
+
+                <label for="test-type">Type of Genetic Test:</label>
+                <select id="test-type" name="test-type" required>
+                    <option value="">Select Test</option>
+                    <option value="ancestry">Ancestry</option>
+                    <option value="health-risk">Health Risk Assessment</option>
+                    <option value="personalized-medicine">Personalized Medicine</option>
+                </select>
+
+                <label for="test-date">Preferred Test Date:</label>
+                <input type="date" id="test-date" name="test-date" required>
+
+                <label for="additional-notes">Additional Notes:</label>
+                <textarea id="additional-notes" name="additional-notes" rows="4"></textarea>
+
+                <button type="button" onclick="submitForm()">Register</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Lab Testing Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById('patient-name').value;
+            const email = document.getElementById('patient-email').value;
+            const phone = document.getElementById('patient-phone').value;
+            const testType = document.getElementById('test-type').value;
+            const testDate = document.getElementById('test-date').value;
+            const additionalNotes = document.getElementById('additional-notes').value;
+
+            // Save form data in localStorage
+            const geneticTestData = {
+                name: name,
+                email: email,
+                phone: phone,
+                testType: testType,
+                testDate: testDate,
+                additionalNotes: additionalNotes
+            };
+
+            // Combine with existing profile data if available
+            const existingData = JSON.parse(localStorage.getItem('registrationData')) || {};
+            localStorage.setItem('registrationData', JSON.stringify({...existingData, geneticTestData}));
+
+            // Redirect to profile page
+            window.location.href = 'profile.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Lab Testing Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #004d40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            width: 250px;
+            background: #00332b; /* Darker green shade for the sidebar */
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .sidebar a:hover {
+            background: #00796b;
+            color: #fff;
+        }
+        .sidebar a .icon {
+            margin-right: 10px;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1; /* Allows content area to grow and fill available space */
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            background: #004d40;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            margin: 0;
+        }
+        .section-content {
+            background: #fff;
+            border-radius: 0 0 8px 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section-content ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .section-content ul li:last-child {
+            border-bottom: none;
+        }
+        footer {
+            background: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto; /* Pushes footer to the bottom */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .content {
+                margin-left: 0;
+            }
+            footer {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+        canvas {
+            width: 100% !important; /* Ensures canvas fits its container */
+            height: 400px !important; /* Adjusts height for better visualization */
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .card h3 {
+            margin: 0;
+            color: #004d40;
+        }
+        .card p {
+            font-size: 24px;
+            margin: 10px 0 0;
+            color: #333;
+        }
+        .chart-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .total-count {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="#blood-tests">
+            <span class="icon">&#128138;</span> Blood Tests
+        </a>
+        <a href="#urine-tests">
+            <span class="icon">&#128137;</span> Urine Tests
+        </a>
+        <a href="#genetic-tests">
+            <span class="icon">&#128197;</span> Genetic Tests
+        </a>
+        <a href="login.html">
+            <span class="icon">&#128274;</span> Logout
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <h2>Dashboard Overview</h2>
+            <div class="section-content">
+                <div class="card">
+                    <h3>Total Blood Tests</h3>
+                    <p>125</p>
+                </div>
+                <div class="card">
+                    <h3>Total Urine Tests</h3>
+                    <p>89</p>
+                </div>
+                <div class="card">
+                    <h3>Total Genetic Tests</h3>
+                    <p>45</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="blood-tests">
+            <h2>Blood Tests Overview</h2>
+            <div class="section-content chart-container">
+                <canvas id="bloodTestsChart"></canvas>
+                <div class="total-count">Total Blood Tests: 125</div>
+            </div>
+        </div>
+
+        <div class="section" id="urine-tests">
+            <h2>Urine Tests Overview</h2>
+            <div class="section-content chart-container">
+                <canvas id="urineTestsChart"></canvas>
+                <div class="total-count">Total Urine Tests: 89</div>
+            </div>
+        </div>
+
+        <div class="section" id="genetic-tests">
+            <h2>Genetic Tests Overview</h2>
+            <div class="section-content chart-container">
+                <canvas id="geneticTestsChart"></canvas>
+                <div class="total-count">Total Genetic Tests: 45</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lab Testing Services. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Blood Tests Chart
+        const ctxBloodTests = document.getElementById('bloodTestsChart').getContext('2d');
+        new Chart(ctxBloodTests, {
+            type: 'bar',
+            data: {
+                labels: ['01-Sep', '02-Sep', '03-Sep', '04-Sep', '05-Sep', '06-Sep', '07-Sep'],
+                datasets: [{
+                    label: 'Blood Tests',
+                    data: [12, 19, 3, 5, 2, 3, 7],
+                    backgroundColor: '#004d40',
+                    borderColor: '#00332b',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Tests'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Urine Tests Chart
+        const ctxUrineTests = document.getElementById('urineTestsChart').getContext('2d');
+        new Chart(ctxUrineTests, {
+            type: 'bar',
+            data: {
+                labels: ['01-Sep', '02-Sep', '03-Sep', '04-Sep', '05-Sep', '06-Sep', '07-Sep'],
+                datasets: [{
+                    label: 'Urine Tests',
+                    data: [8, 11, 9, 14, 10, 12, 15],
+                    backgroundColor: '#00796b',
+                    borderColor: '#004d40',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Tests'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Genetic Tests Chart
+        const ctxGeneticTests = document.getElementById('geneticTestsChart').getContext('2d');
+        new Chart(ctxGeneticTests, {
+            type: 'bar',
+            data: {
+                labels: ['01-Sep', '02-Sep', '03-Sep', '04-Sep', '05-Sep', '06-Sep', '07-Sep'],
+                datasets: [{
+                    label: 'Genetic Tests',
+                    data: [5, 7, 8, 6, 9, 10, 4],
+                    backgroundColor: '#004d40',
+                    borderColor: '#00332b',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Tests'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

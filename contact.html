@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Lab Testing Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #004d40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        .hero {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStI3ZUApLZlpZlmLqrcAkZMKSKEs7OCTNIAg&s') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px; /* Increased padding */
+            margin-bottom: 20px;
+            position: relative;
+            background-size: cover;
+            transform: scale(1.05); /* Initial scale */
+            opacity: 0;
+            animation: zoomIn 2s forwards; /* Animation added */
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .hero p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            opacity: 0;
+            animation: fadeIn 2s forwards; /* Animation added */
+        }
+        .contact-info, .contact-form, .map {
+            background-color: #e0f2f1;
+            border: 1px solid #004d40;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition added */
+        }
+        .contact-info:hover, .contact-form:hover, .map:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover effect */
+        }
+        .contact-info h2, .contact-form h2, .map h2 {
+            color: #004d40;
+        }
+        .contact-info p {
+            font-size: 1.1em;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #004d40;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: #004d40;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #00332e;
+        }
+        .map iframe {
+            width: 100%;
+            border: none;
+            height: 400px;
+            border-radius: 4px;
+        }
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+        }
+        /* Keyframes for zoom-in animation */
+        @keyframes zoomIn {
+            from {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lab Testing Services</h1>
+        <nav>
+            <a href="home.html">Home</a>
+          
+            <a href="service.html">Services</a>
+            <a href="aboutus.html">About Us</a>
+            
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Reach out to us through any of the following methods.</p>
+    </div>
+
+    <div class="content">
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> 123 Health St., Wellness City, HC 45678</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> contact@labtestingservices.com</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section class="map">
+            <h2>Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1304071064406!2d-122.41941548468187!3d37.77492927975917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808d89e8bb95%3A0x1fc9a3a882827f7b!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1623849306064!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Lab Testing Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>
